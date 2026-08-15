@@ -1,0 +1,1 @@
+.party-message{animation:slowPartyMessageIn 1s ease both!important}.thought-card.wide{aspect-ratio:1456/1088}@keyframes slowPartyMessageIn{from{opacity:0;transform:translateY(-45%) scale(.985)}to{opacity:1;transform:translateY(-50%) rotate(-1deg) scale(1)}}@media(prefers-reduced-motion:reduce){.party-message{animation:none!important;transform:translateY(-50%)!important}}

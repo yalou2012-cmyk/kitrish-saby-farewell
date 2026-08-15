@@ -1,0 +1,16 @@
+.rail a .task-alert {
+  color: #ff5a46;
+  font-weight: bold;
+  animation: taskPulse 1.15s steps(2, end) infinite;
+}
+
+@keyframes taskPulse {
+  50% { opacity: .18; }
+}
+
+.profile-title .profile-role {
+  max-width: 760px;
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.35;
+}

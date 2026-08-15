@@ -1,0 +1,18 @@
+.farewell-task {
+  min-height: 104px;
+  height: auto;
+  margin-top: 18px;
+  background: #fff;
+  border-left: 3px solid #bc973e !important;
+  animation: none;
+}
+.farewell-task:hover { background: #f8f6ef; }
+.farewell-task.first-reveal { animation: firstReveal .75s ease-out 1; }
+.farewell-star { font-size: 21px; }
+.farewell-kicker { font-weight: normal; }
+.farewell-name { font-size: 14px; color: #344d7c; font-weight: bold; }
+.farewell-description { font-size: 16px; line-height: 1.5; color: #42536a; margin: 10px 0 16px; }
+.calm-final h2 { font-size: 22px; margin-top: 25px; }
+.memory-final { border-top: 1px solid #e5e7e9; margin-top: 22px; padding-top: 20px; font-size: 18px; line-height: 1.55; }
+.memory-final strong { display: block; color: #3f6688; margin-top: 17px; }
+@keyframes firstReveal { 0% { background:#fff; } 45% { background:#fbf3d5; } 100% { background:#fff; } }
