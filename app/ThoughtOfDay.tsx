@@ -79,7 +79,10 @@ export default function ThoughtOfDay({ onClose }: { onClose: () => void }) {
     if (switching) return;
     setSwitching(true);
     window.setTimeout(() => {
-      setCurrent(previous => randomIndex(previous));
+      setCurrent(previous => {
+        const unseen = cards.map((_, index) => index).filter(index => index !== previous && !viewed.includes(index));
+        return unseen.length ? unseen[Math.floor(Math.random() * unseen.length)] : randomIndex(previous);
+      });
       setSwitching(false);
     }, 230);
   };
@@ -99,7 +102,7 @@ export default function ThoughtOfDay({ onClose }: { onClose: () => void }) {
         <button className="thought-hotspot postpone" onClick={postpone} aria-label="Сегодня отдыхаю" />
         <button className="thought-hotspot go" onClick={another} aria-label="Погнали — другая мысль" />
       </div>
-      <div className="thought-footer"><span>{viewed.length >= TOTAL ? "Корпоративная мудрость освоена полностью ✓" : `Мудростей освоено: ${viewed.length} / ${TOTAL}`}</span><div><button onClick={another}>Другая мысль</button><button onClick={onClose}>Закрыть</button></div></div>
+      <div className="thought-footer"><span>{viewed.length >= TOTAL ? `Освоено: ${TOTAL} из ${TOTAL} · Все мудрости просмотрены ✓` : `Освоено: ${viewed.length} из ${TOTAL}`}</span><div><button onClick={another}>Другая мысль</button><button onClick={onClose}>Закрыть</button></div></div>
       {notice && <div className="thought-notice">Решение принято. Мысль отложена до следующего раза.</div>}
     </section>
   </div>;

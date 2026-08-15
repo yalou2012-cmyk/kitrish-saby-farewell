@@ -11,6 +11,7 @@ import "./farewell-party-extended.css";
 import "./finale-reading-mode.css";
 import "./thoughts.css";
 import "./finale-reading-fixes.css";
+import "./privacy.css";
 
 export const metadata: Metadata = {
   title: "Документы — рабочее пространство",

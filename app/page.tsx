@@ -89,7 +89,7 @@ export default function Home() {
         <div className="profile-photo" role="img" aria-label="Фотография Китриш О." />
         <div className="profile-title"><p className="presence"><i /> В сети&nbsp; Работает у нас по 17.08.2026</p><p className="profile-role">Департамент администрации и персонала&nbsp;&nbsp; Менеджер по учету товарно-материальных ценностей и управлению архивом и швец и жнец и на дуде игрец</p><h1>Китриш Ольга</h1></div>
       </div>
-      <div className="contact-card"><b>Контакты</b><button>＋</button><p>☎ &nbsp;8870 &nbsp;&nbsp;&nbsp; +7 (911) 184-91-41 &nbsp;&nbsp;&nbsp; ✈ &nbsp;◌ &nbsp; @ &nbsp; kitrishoo@balticpearl.net</p></div>
+      <div className="contact-card"><b>Контакты</b><button>＋</button><p>☎ &nbsp;8870 &nbsp;&nbsp;&nbsp; +7 (911) 184-91-42 &nbsp;&nbsp;&nbsp; ✈ &nbsp;◌ &nbsp; @ &nbsp; kitrishoo@baltikpearl.net</p></div>
       <div className="profile-tabs"><strong>Общие сведения</strong><span>CRM</span><span>Задачи <small>1</small></span><span>Группы</span></div>
     </section>}
     {selectedTask !== null && <section className="task-detail" aria-label="Карточка задачи">
