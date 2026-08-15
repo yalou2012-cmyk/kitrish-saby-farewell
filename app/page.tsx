@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import FarewellScenario from "./FarewellScenario";
 import ThoughtOfDay from "./ThoughtOfDay";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const sectionItems = ["Все приказы", "Приказ/распоряжение", "Доверенность", "Протокол комиссии", "Акт", "Служебная записка", "Согласование документов", "Приказ (ознакомление)", "Приказ с подписанием"];
 const documentTitles = [
   "Приказ о проведении инвентаризации основных средств", "Доверенность №18 на подписание документов по продаже мебели", "Приказ об организации срочного переезда",
@@ -86,7 +88,7 @@ export default function Home() {
     {profileOpen && <section className="profile-panel" aria-label="Профиль Китриш О.">
       <button className="profile-close" onClick={() => setProfileOpen(false)} aria-label="Закрыть">×</button>
       <div className="profile-top">
-        <div className="profile-photo" role="img" aria-label="Фотография Китриш О." />
+        <div className="profile-photo" role="img" aria-label="Фотография Китриш О." style={{ backgroundImage: `url(${BASE_PATH}/kitrish-profile-source.png)` }} />
         <div className="profile-title"><p className="presence"><i /> В сети&nbsp; Работает у нас по 17.08.2026</p><p className="profile-role">Департамент администрации и персонала&nbsp;&nbsp; Менеджер по учету товарно-материальных ценностей и управлению архивом и швец и жнец и на дуде игрец</p><h1>Китриш Ольга</h1></div>
       </div>
       <div className="contact-card"><b>Контакты</b><button>＋</button><p>☎ &nbsp;8870 &nbsp;&nbsp;&nbsp; +7 (911) 184-91-42 &nbsp;&nbsp;&nbsp; ✈ &nbsp;◌ &nbsp; @ &nbsp; kitrishoo@baltikpearl.net</p></div>

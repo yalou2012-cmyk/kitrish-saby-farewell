@@ -14,6 +14,8 @@ const panicMessages = [
   "Ошибка. Достоинство не найдено."
 ];
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const partyStartMessages = ["ВЕЧЕРИНКА РАЗРЕШЕНА", "КОРПОРАТИВНАЯ ГОТОВНОСТЬ: 146%", "РЕЖИМ СЕРЬЁЗНОСТИ ОТКЛЮЧЁН"];
 const partyPhases: Phase[] = ["partyStart", "systemDegrading", "taskCounterCollapse", "logoMeltdown", "corporateRecoveryFailed", "fullCringe", "partyDiagnostics", "shutdown", "humanMode"];
 
@@ -115,7 +117,7 @@ export default function FarewellScenario({ onClose }: { onClose: () => void }) {
     <p className="farewell-number">Задача №20 368</p><h1>Создать ещё одно хорошее общее воспоминание</h1>
     <p className="farewell-description">За семь лет накопилось достаточно задач, документов, переездов, инвентаризаций и историй.<br/>Сегодня задача проще: хорошо провести этот день вместе и добавить к ним ещё одно хорошее воспоминание.</p>
     <p className="equipment-lead">Для выполнения задачи необходимо проверить готовность обязательного праздничного оборудования.</p>
-    {showPackages && <div className="packages"><PackageCard brand="OZON" image="/assets/ozon-package.jpg" delay="one" ready={prepared}/><PackageCard brand="WILDBERRIES" image="/assets/wildberries-package.jpg" delay="two" ready={prepared}/></div>}
+    {showPackages && <div className="packages"><PackageCard brand="OZON" image={`${BASE_PATH}/assets/ozon-package.jpg`} delay="one" ready={prepared}/><PackageCard brand="WILDBERRIES" image={`${BASE_PATH}/assets/wildberries-package.jpg`} delay="two" ready={prepared}/></div>}
     {showWarning && phase === "equipment" && <div className="package-warning">Без пакетов мероприятие не может быть признано состоявшимся.</div>}
     {showDeficit && phase === "equipment" && <p className="deficit">СБИС обнаружил критический дефицит праздничной тары.</p>}
     {phase === "panic" && <div key={panicStep} className={`panic-status panic-step-${panicStep}`} aria-live="polite">{panicMessages[panicStep]}</div>}
@@ -130,7 +132,7 @@ function PartyScene({ phase, step, counter }: { phase: Phase; step: number; coun
   const packagesVisible = ["partyStart","systemDegrading","taskCounterCollapse","logoMeltdown","corporateRecoveryFailed","fullCringe"].includes(phase);
   return <section className={`farewell-panel party-scene scene-${phase}`} aria-label="Расширенный праздничный режим">
     {phase!=="shutdown"&&phase!=="humanMode"&&<><div className="party-lights" aria-hidden="true">{Array.from({length:12},(_,i)=><i key={i}/>)}</div><div className="party-stars" aria-hidden="true">★ ✦ ★ ✧ ✦ ★</div><div className="party-bangs" aria-hidden="true">!!!</div><div className="confetti" aria-hidden="true">{confetti.map((item,index)=><i key={index} style={{left:`${item.left}%`,animationDelay:`${item.delay}s`,animationDuration:`${item.duration}s`}}/>)}</div></>}
-    {packagesVisible&&<div className="party-packages"><PackageCard brand="OZON" image="/assets/ozon-package.jpg" delay="one" ready party/><PackageCard brand="WILDBERRIES" image="/assets/wildberries-package.jpg" delay="two" ready party/></div>}
+    {packagesVisible&&<div className="party-packages"><PackageCard brand="OZON" image={`${BASE_PATH}/assets/ozon-package.jpg`} delay="one" ready party/><PackageCard brand="WILDBERRIES" image={`${BASE_PATH}/assets/wildberries-package.jpg`} delay="two" ready party/></div>}
     {phase==="partyStart"&&<div key={step} className="party-message respectable" aria-live="polite">{partyStartMessages[step]}</div>}
     {phase==="systemDegrading"&&<SystemDegrading step={step}/>} 
     {phase==="taskCounterCollapse"&&<div className="counter-collapse"><span>Активных задач</span><b>{counter}</b>{step>=1&&<h1>ВСЁ. ХВАТИТ РАБОТАТЬ.</h1>}</div>}

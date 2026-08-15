@@ -11,7 +11,8 @@ type ThoughtCard = {
   row?: number;
 };
 
-const SOURCE = "/assets/thoughts-current";
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const SOURCE = `${BASE_PATH}/assets/thoughts-current`;
 const SHEET = `${SOURCE}/thought-sheet.png`;
 
 const cards: ThoughtCard[] = [
